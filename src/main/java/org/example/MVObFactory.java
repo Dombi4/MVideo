@@ -36,7 +36,8 @@ public class MVObFactory {
     }
     public static void mouseInTablet(WebDriver driver){
         String nout = "//a[text() = 'Ноутбуки и компьютеры']";
-        WebElement noutElem = driver.findElement(By.xpath(nout));
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebElement noutElem = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(nout)));
         new Actions(driver).moveToElement(noutElem).perform();
     }
     public static void clickTablets(WebDriver driver){
